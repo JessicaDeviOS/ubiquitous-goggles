@@ -16,11 +16,12 @@ enum Tab {
 
 struct CustomTabBar: View {
     @Binding var selectedTab: Tab
+    private let height: CGFloat = 75.0
     
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(height: 75)
+                .frame(height: height)
                 .cornerRadius(40)
                 .padding(50)
                 .foregroundColor(.white)
@@ -49,11 +50,9 @@ struct CustomTabBar: View {
                 } label: {
                     CustomTabBarButtonLabel(systemImageName: "book.fill", isSelected: selectedTab == .book)
                 }
-
-
-
             }
         }
+        .frame(height: height)
     }
 }
 

@@ -11,21 +11,21 @@ struct ContentView: View {
     @State private var selectedTab: Tab = .home
     
     var body: some View {
-        VStack {
-            switch selectedTab {
-            case .home:
-                Text("home view")
-            case .calander:
-                Text("calandar view")
-            case .bag:
-                Text("bag view")
-            case .book:
-                Text("book view")
+        ZStack {
+            VStack {
+                ScrollView {
+                    Circle()
+                    Circle()
+                    Circle()
+                }
             }
-            Spacer()
-            CustomTabBar(selectedTab: $selectedTab)
+            VStack {
+                Spacer()
+                CustomTabBar(selectedTab: $selectedTab)
+            }
+            .padding(.bottom, 8)
+            .ignoresSafeArea(edges: .bottom)
         }
-        .padding()
     }
 }
 
