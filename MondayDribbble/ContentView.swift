@@ -12,10 +12,16 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            switch selectedTab {
+            case .home:
+                Text("home view")
+            case .calander:
+                Text("calandar view")
+            case .bag:
+                Text("bag view")
+            case .book:
+                Text("book view")
+            }
             Spacer()
             CustomTabBar(selectedTab: $selectedTab)
         }

@@ -25,33 +25,32 @@ struct CustomTabBar: View {
                 .padding(50)
                 .foregroundColor(.white)
                 .shadow(radius: 10)
-            HStack {
+            HStack(spacing: 20) {
                 Button {
                     selectedTab = .home
                 } label: {
-                    ZStack {
-                        Circle()
-                            .frame(width: 40)
-                            .foregroundColor(.green)
-                            .opacity(0.3)
-                        Image(systemName: "house.fill")
-                            .foregroundColor(.green)
-                    }
+                    CustomTabBarButtonLabel(systemImageName: "house.fill", isSelected: selectedTab == .home)
                 }
                 
                 Button {
                     selectedTab = .calander
                 } label: {
-//                    ZStack {
-//                        Circle()
-//                            .frame(width: 40)
-//                            .foregroundColor(.green)
-//                            .opacity(0.3)
-//                        Image(systemName: "calendar")
-//                            .foregroundColor(.green)
-//                    }
                     CustomTabBarButtonLabel(systemImageName: "calendar", isSelected: selectedTab == .calander)
                 }
+                
+                Button {
+                    selectedTab = .bag
+                } label: {
+                    CustomTabBarButtonLabel(systemImageName: "bag.fill", isSelected: selectedTab == .bag)
+                }
+                
+                Button {
+                    selectedTab = .book
+                } label: {
+                    CustomTabBarButtonLabel(systemImageName: "book.fill", isSelected: selectedTab == .book)
+                }
+
+
 
             }
         }
@@ -64,12 +63,10 @@ struct CustomTabBarButtonLabel: View {
     
     var body: some View {
         ZStack {
-            if isSelected {
-                Circle()
-                    .frame(width: 40)
-                    .foregroundColor(.green)
-                    .opacity(0.3)
-            }
+            Circle()
+                .frame(width: 40)
+                .foregroundColor(isSelected ? .green : .white) // TODO: .white depends on if app is in color mode or not
+                .opacity(0.3)
             Image(systemName: systemImageName)
                 .foregroundColor(isSelected ? .green : .gray)
         }
