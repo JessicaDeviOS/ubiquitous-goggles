@@ -13,10 +13,17 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack {
-                ScrollView {
-                    Circle()
-                    Circle()
-                    Circle()
+                switch selectedTab {
+                case .home:
+                    NavigationStack {
+                        HomeView()
+                    }
+                case .calander:
+                    Text("calandar")
+                case .bag:
+                    Text("bag")
+                case .book:
+                    Text("book")
                 }
             }
             VStack {
