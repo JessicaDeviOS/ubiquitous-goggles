@@ -12,8 +12,16 @@ enum PlantToggle: String {
     case harvested = "Harvested"
 }
 
+struct PlantViewInfo {
+    let imageName: String
+    let percent: Double
+    let title: String
+    let subtitle: String
+}
+
 struct HomeView: View {
     @State var plantToggle: PlantToggle = .harvested
+    // TODO: array of PlantViewInfo
     let data = ["Pink Gerbera", "Nest Fern", "Young Banana", "Dahila", "Something I can't see", "Cats <3"]
     let columns = [GridItem(.flexible()), GridItem(.flexible())]
     
